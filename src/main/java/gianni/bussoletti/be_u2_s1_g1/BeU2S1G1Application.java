@@ -102,10 +102,24 @@ public class BeU2S1G1Application {
 //        }
 
 //        ---------------ESEMPIO DI CLASSE component
+//        Il component fondamentalmente permette di non dover creare una nuova istanza per classe
+//        ma permette di richiamare la singola istanza e di leggera d'ovunque nell'applicazione.
         Interviewer interviewer = context.getBean(Interviewer.class);
         interviewer.askQuestion();
     }
+//--------------------QUALIFIER----------------
+//    @Qualifier è un'annotazione in Spring utilizzata per specificare esplicitamente il nome del bean o il suo identificatore
+//    quando sono disponibili più implementazioni dello stesso tipo. Offre un controllo esplicito sulla risoluzione delle
+//    dipendenze e consente di specificare quale bean utilizzare in situazioni ambigue. @Primary, d'altra parte, indica un
+//    bean preferito ma non offre lo stesso grado di controllo quando ci sono più candidati.
 
 
+//    -------------CommandLineRunner-----------
+//    Si crea una  classe a parte che implementa un interfaccia chiamata CommandLineRunner
+//    Deve avere per forza l'annotazione @Component
+//    Verrà poi fatto un override del metodo run e runnerà tutte i metodi al suo interno.
+//    Il runner non va richiamato e si avvia subito come prima cosa.
+//    Si possono avere anche multipli runner e si può decidere l'ordine di questi ultimi tramite @Order
+//    Possiamo creare delle dipendenze e nel caso di mancanza di costruttore avere un Autowired dirretamente sull'attributo
 }
 

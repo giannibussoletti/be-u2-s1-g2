@@ -38,7 +38,7 @@ public class ConfigClass {
     }
 
 
-    @Bean
+    @Bean(name = "FES")
     public FrontEndStudent getFEStudent() {
         return new FrontEndStudent("Mario", "Rossi");
     }

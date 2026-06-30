@@ -1,5 +1,6 @@
 package gianni.bussoletti.be_u2_s1_g1.entities;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,7 +14,11 @@ public class Interviewer {
     //    Esempio di accoppiamento debole.
     // Se il costrure è unico l'autowired non è necessario
 //    La CONSTRUCTOR INJECTION è quella più consigliata
-    public Interviewer(Student student) {
+//    public Interviewer(Student student) {
+//        this.student = student;
+//    }
+//Esempio d'uso del qualifier che va a prendere lo studente con il nome indicato
+    public Interviewer(@Qualifier("FES") Student student) {
         this.student = student;
     }
 
