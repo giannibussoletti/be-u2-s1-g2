@@ -1,10 +1,10 @@
-package gianni_bussoletti.be_u2_s1_g1_menu_pizza;
+package gianni.bussoletti.be_u2_s1_g1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BeU2S1G1MenuPizzaApplicationTests {
+class BeU2S1G1ApplicationTests {
 
 	@Test
 	void contextLoads() {
