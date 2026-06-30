@@ -5,9 +5,11 @@ import gianni.bussoletti.be_u2_s1_g1.entities.BackEndStudent;
 import gianni.bussoletti.be_u2_s1_g1.entities.FrontEndStudent;
 import gianni.bussoletti.be_u2_s1_g1.entities.FullStackStudent;
 import gianni.bussoletti.be_u2_s1_g1.entities.Interviewer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 /*
@@ -17,7 +19,23 @@ ciò significa che possiamo chiedere a Spring di creare e gestire determinati og
 le istruzioni che daremo in questa classe.
 Ogni metodo annotato con @Bean serve per definire un oggetto diverso
 */
+//Questa Annotazione qui sotto serve alla classe di config per sapere
+//da dove leggere le eventuali value
+@PropertySource("application.properties")
 public class ConfigClass {
+
+    @Bean
+//    Se volessimo leggere il valore dell'admin name in application.properties
+//    dovremmo usare il @Value (Attenzione a non prendere quello di Lombok nel caso sia installato come libreria)
+//    Altra cosa molto importate è necessario ricordarsi di usare ${} tra le virgolette
+//    per recupeare in maniera corretta la chiave da application.properties
+//    Altrimenti leggerà quello inserito al suo interno solo come una Stringa
+//    Abbiamo anche la possibilità di passare più di una value, vengono trattate esattamente
+//    come degli attributi nei costruttori
+    public String getAdminName(@Value("${admin.name}") String adminName, @Value("${admin.surname}") String adminSurname) {
+        return adminName + " " + adminSurname;
+    }
+
 
     @Bean
     public FrontEndStudent getFEStudent() {

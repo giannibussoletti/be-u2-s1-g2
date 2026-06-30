@@ -1,8 +1,5 @@
 package gianni.bussoletti.be_u2_s1_g1;
 
-import gianni.bussoletti.be_u2_s1_g1.entities.FrontEndStudent;
-import gianni.bussoletti.be_u2_s1_g1.entities.FullStackStudent;
-import gianni.bussoletti.be_u2_s1_g1.entities.Interviewer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -23,21 +20,24 @@ public class BeU2S1G1Application {
         // Ma in una applicazione finita, la logica verrà gestita altrove.
         // E non sul main
 
-
         //--------------METODO CREAZIONE OGGETTI CON I BEANS----------------
         // 1. Devo accedere all'ApplicationContext creando un oggetto di tipo AnnotationConfigApplicationContext
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(BeU2S1G1Application.class);
 
+        String getAdminName = context.getBean("getAdminName", String.class);
+        System.out.println(getAdminName);
+
+
         // 2. Tramite context posso usare il metodo .getBean() per leggere i bean dallo "scatolone" e posso farlo specificando
         // il NOME PRECISO DEL BEAN
-        FullStackStudent fsFromContext = context.getBean("getFSStudent", FullStackStudent.class);
-        System.out.println(fsFromContext);
-        // oppure il TIPO DEL BEAN
-        FrontEndStudent fEFromContext = context.getBean(FrontEndStudent.class);
-        System.out.println(fEFromContext);
-
-        Interviewer interviewer = context.getBean(Interviewer.class);
-        interviewer.askQuestion();
+//        FullStackStudent fsFromContext = context.getBean("getFSStudent", FullStackStudent.class);
+//        System.out.println(fsFromContext);
+//        // oppure il TIPO DEL BEAN
+//        FrontEndStudent fEFromContext = context.getBean(FrontEndStudent.class);
+//        System.out.println(fEFromContext);
+//
+//        Interviewer interviewer = context.getBean(Interviewer.class);
+//        interviewer.askQuestion();
     }
 
 
