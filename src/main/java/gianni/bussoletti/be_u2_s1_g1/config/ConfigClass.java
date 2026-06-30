@@ -24,14 +24,16 @@ Ogni metodo annotato con @Bean serve per definire un oggetto diverso
 @PropertySource("application.properties")
 public class ConfigClass {
 
+
+    //    Se volessimo leggere il valore dell'admin name in application.properties
+    //    dovremmo usare il @Value (Attenzione a non prendere quello di Lombok nel caso sia installato come libreria)
+    //    Altra cosa molto importate è necessario ricordarsi di usare ${} tra le virgolette
+    //    per recupeare in maniera corretta la chiave da application.properties
+    //    Altrimenti leggerà quello inserito al suo interno solo come una Stringa
+    //    Abbiamo anche la possibilità di passare più di una value, vengono trattate esattamente
+    //    come degli attributi nei costruttori
+    //    Questa cosa è chiamata Dipencency Injection
     @Bean
-//    Se volessimo leggere il valore dell'admin name in application.properties
-//    dovremmo usare il @Value (Attenzione a non prendere quello di Lombok nel caso sia installato come libreria)
-//    Altra cosa molto importate è necessario ricordarsi di usare ${} tra le virgolette
-//    per recupeare in maniera corretta la chiave da application.properties
-//    Altrimenti leggerà quello inserito al suo interno solo come una Stringa
-//    Abbiamo anche la possibilità di passare più di una value, vengono trattate esattamente
-//    come degli attributi nei costruttori
     public String getAdminName(@Value("${admin.name}") String adminName, @Value("${admin.surname}") String adminSurname) {
         return adminName + " " + adminSurname;
     }
