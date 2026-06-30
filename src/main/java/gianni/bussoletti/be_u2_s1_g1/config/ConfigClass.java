@@ -4,7 +4,6 @@ package gianni.bussoletti.be_u2_s1_g1.config;
 import gianni.bussoletti.be_u2_s1_g1.entities.BackEndStudent;
 import gianni.bussoletti.be_u2_s1_g1.entities.FrontEndStudent;
 import gianni.bussoletti.be_u2_s1_g1.entities.FullStackStudent;
-import gianni.bussoletti.be_u2_s1_g1.entities.Interviewer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -57,15 +56,16 @@ public class ConfigClass {
     // Cosa succede quando una dipendenza viene chiamata tramite classe ma esistono più dipendenze dello stesso genere
     // Se c'è più di un Bean dello stesso tipo bisogna essere più specifici con le istruzioni
     @Primary // Annotazione opzionale che permette di risolvere le ambiguità
+    // Utile per far trovare alla classe content quale dipendenza prendere dal context
     @Bean
     public FullStackStudent getFSStudent2() {
         return new FullStackStudent("Franco", "Neri");
     }
 
-    @Bean
-    public Interviewer getInterviewer(FullStackStudent fullStackStudent) {
-        return new Interviewer(fullStackStudent);
-    }
+//    @Bean
+//    public Interviewer getInterviewer(FullStackStudent fullStackStudent) {
+//        return new Interviewer(fullStackStudent);
+//    }
 
 //    @Bean
 //    public Interviewer getInterviewer(Student student) {
