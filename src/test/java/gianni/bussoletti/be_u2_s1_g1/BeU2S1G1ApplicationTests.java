@@ -50,7 +50,7 @@ class BeU2S1G1ApplicationTests {
 //    Test parametrico
 //    Sono test che permettono di eseguire lo stesso test con dati diversi passati tramite valori
 //    @ParameterizedTest <- Serve per inizializzare un test parametrico
-//    @§ValueSource <- annnotazione che fa passare i diversi valori come per esempio diverse lettere, parole o numeri singolarmente es.
+//    @ValueSource <- annnotazione che fa passare i diversi valori come per esempio diverse lettere, parole o numeri singolarmente es.
 //    CsvSource <- permette di passare parametri a 2 o più insieme. Serve se il test ha 2 o più test al suo interno.
 
 //    Nomi parlanti ai test per creare un orientazione migliore con @DisplayName
